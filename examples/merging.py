@@ -1,19 +1,19 @@
-import pandas as pd
-import numpy as np
+import pandas as pd         #allows for the data to be manipulated. analyzing, cleaning, exploring
+import numpy as np          #for numerical datas
 
 class display(object):
     """Display HTML representation of multiple objects"""
     template = """<div style="float: left; padding: 10px;">
     <p style='font-family:"Courier New", Courier, monospace'>{0}</p>{1}
     </div>"""
-    def __init__(self, *args):
+    def __init__(self, *args):              #__init__ is a reserved method in python class. Constructor obj
         self.args = args
 
-    def _repr_html_(self):
+    def _repr_html_(self):                  #_repr_html_ renders the html method in jupyter notebook
         return '\n'.join(self.template.format(a, eval(a)._repr_html_())
                          for a in self.args)
 
-    def __repr__(self):
+    def __repr__(self):                     # _repr_ returns a printable representation of an obj
         return '\n\n'.join(a + '\n' + repr(eval(a))
                            for a in self.args)
 
