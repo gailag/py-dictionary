@@ -15,7 +15,26 @@ for num in list:
 #E.g. [1,1,2,2,3] -> [3]
 #[1,2,2] -> [0]
 
-def returnSingleNumber(l:List[int]) -> List[int]
+#def returnSingleNumber(l:List[int]) -> List[int]
+
+def unique(list):
+    s = {}
+    non_dupes = []
+    
+    for x in list:
+        if x not in s:
+            s[x] = 1
+        else:
+            s[x] += 1
+            
+    for x in s:
+        if s[x] == 1:
+            non_dupes.append(x)
+    return non_dupes
+    
+list = [1, 1, 2, 2, 3]
+cd = unique(list)
+print(cd)
 
 
 #Q3: Given an arbitrary length credit card number, mask all characters but the last four digits with *
